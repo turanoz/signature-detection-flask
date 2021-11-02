@@ -1,3 +1,13 @@
 # signaturedetectionpdf
-Kocaeli Üniversitesi Başvuru uygulaması imzalı dosya tespiti için OpenCV kullanılarak Python Flask yapısı kullanılarak HTTP API olarak kullanılması sağlanmıştır... <br>
-ERTS TEAM
+This API works as a signature detection in a Pdf file. This api use flask structure and. 
+This Api was developed by 4 people.
+
+Engin Beyazgül
+
+Serhat Kaçmaz
+
+Ramazan Kaplaner
+
+Turan Öz
+
+
