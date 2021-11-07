@@ -120,7 +120,7 @@ def upload_file():
         up_height = 2475
         up_points = (up_width, up_height)
         image = cv2.resize(image, up_points, interpolation= cv2.INTER_LINEAR)
-        frame_HSV = cv2.cvtColor(image[0:2500, 1000:2000], cv2.COLOR_BGR2HSV)
+        frame_HSV = cv2.cvtColor(image[500:2400,1100:1600], cv2.COLOR_BGR2HSV)
         frame_threshold = cv2.inRange(frame_HSV, (0, 0, 250), (255, 255, 255))
         preview = extract_sign(frame_threshold)
         cnts = cv2.findContours(preview, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -129,7 +129,7 @@ def upload_file():
         copy_img = preview.copy()
         for c in cnt:
             (x, y, w, h) = cv2.boundingRect(c)
-            if h * w > 10000 and h < copy_img.shape[0] and w < copy_img.shape[1] and x != 0:
+            if h * w > 10000 and h < copy_img.shape[0] and w < copy_img.shape[1] and x != 0 and x < 350 and y < 1720 and h>70:
                 cv2.rectangle(copy_img, (x, y), (x + w, y + h), (155, 155, 0), 1)
                 boxes.append([x, y, w, h])
         np_boxes = np.array(boxes)
