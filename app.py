@@ -129,8 +129,7 @@ def upload_file():
         copy_img = preview.copy()
         for c in cnt:
             (x, y, w, h) = cv2.boundingRect(c)
-            if h * w > 10000 and h < copy_img.shape[0] and w < copy_img.shape[
-                1] and x < 350 and y < 1720 and x != 0 and h > 83:
+            if h * w > 10000 and h < copy_img.shape[0] and w < copy_img.shape[1] and x != 0 and h > 83:
                 cv2.rectangle(copy_img, (x, y), (x + w, y + h), (155, 155, 0), 1)
                 boxes.append([x, y, w, h])
         np_boxes = np.array(boxes)
