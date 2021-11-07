@@ -116,6 +116,10 @@ def upload_file():
         # Signature Detection :
         #https://github.com/EnzoSeason/signature_detection opencv methodları dahil...
         image = cv2.imread('static/converts/0.jpg')
+        up_width = 1751
+        up_height = 2475
+        up_points = (up_width, up_height)
+        image = cv2.resize(image, up_points, interpolation= cv2.INTER_LINEAR)
         frame_HSV = cv2.cvtColor(image[0:2500, 1000:2000], cv2.COLOR_BGR2HSV)
         frame_threshold = cv2.inRange(frame_HSV, (0, 0, 250), (255, 255, 255))
         preview = extract_sign(frame_threshold)
