@@ -27,4 +27,4 @@ six==1.16.0
 tifffile==2021.10.12
 urllib3==1.26.7
 Werkzeug==2.0.2
-flask-cors
+Flask-Cors==1.10.3
