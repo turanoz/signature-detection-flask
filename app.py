@@ -13,7 +13,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.secret_key = "tser-coders-devops"
 app.config['CORS_HEADERS'] = 'Content-Type'
-cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
+cors = CORS(app, resources={r"/foo": {"origins": "*"}})
 
 UPLOAD_FOLDER = 'static/uploads'
 CONVERTING_FOLDER = 'static/converts'
