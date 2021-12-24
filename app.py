@@ -1,5 +1,6 @@
 # app.py
 from flask import Flask, json, request, jsonify, redirect
+from flask_cors import CORS
 import os
 import cv2
 import matplotlib.pyplot as plt
@@ -11,6 +12,9 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = "tser-coders-devops"
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
+
 UPLOAD_FOLDER = 'static/uploads'
 CONVERTING_FOLDER = 'static/converts'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -90,6 +94,7 @@ def main():
 
 
 @app.route('/signature-detection', methods=['POST'])
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 def upload_file():
     if 'files[]' not in request.files:
         resp = jsonify({'message': 'Dosya göndermediniz'})
