@@ -155,7 +155,7 @@ def upload_file():
                 if is_merged == False:
                     key = len(regions)
                     regions[key] = box
-        os.remove("static/converts/0.jpg")
+        #os.remove("static/converts/0.jpg")
         if regions:
             return jsonify(imza="true"), 200
         else:
